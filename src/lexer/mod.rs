@@ -13,7 +13,7 @@ pub fn tokenize(data: &str) -> Result<Vec<Token>> {
     let mut tokenizer = tokenizer::Tokenizer::new(data);
     let mut tokens = Vec::with_capacity(8);
 
-    while let Some(token) = tokenizer.next()? {
+    while let Some(token) = tokenizer.next() {
         tokens.push(token);
     }
 

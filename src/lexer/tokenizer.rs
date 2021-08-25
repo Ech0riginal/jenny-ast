@@ -12,9 +12,9 @@ impl<'t> Tokenizer<'t> {
         Self { buffer, }
     }
 
-    pub fn next(&mut self) -> Result<Option<Token>> {
+    pub fn next(&mut self) -> Option<Token> {
         if self.buffer.is_empty() {
-            return Ok(None);
+            return None;
         }
 
         let cursor: usize = whitespace::skip(self.buffer);
@@ -30,7 +30,7 @@ impl<'t> Tokenizer<'t> {
             self.advance(step);
         }
 
-        Ok(Some(tok))
+        Some(tok)
     }
 
     fn advance(&mut self, n: usize) {
